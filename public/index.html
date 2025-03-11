@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dheeraj's Coffee Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SRI SAI FAST FOODS</h1>
+    <div class="menu">
+      <h2>Menu</h2>
+      <div class="menu-items">
+        <div class="item" data-name="Boti" data-price="50">
+            
+          <p>Boti / బోటీ - ₹50</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item" data-name="Head" data-price="60">
+          <p>Head / తల  - ₹60</P>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item" data-name="Liver" data-price="60">
+          <p>Liver / లివర్ - ₹60</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="item" data-name="Paya" data-price="90">
+          <p>Paya / పాయ  - ₹90</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart">
+      <h2>Your Cart</h2>
+      <ul class="cart-items"></ul>
+      <p>Total: ₹<span class="total">0</span></p>
+
+      <!-- Customer Details Form -->
+      <div class="customer-form">
+        <h2>Customer Details</h2>
+        <input type="text" id="customer-name" placeholder="Your Name" required>
+        <input type="text" id="customer-phone" placeholder="Your Phone Number" required>
+      </div>
+
+      <button class="checkout">Confirm Order</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
