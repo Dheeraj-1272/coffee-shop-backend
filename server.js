@@ -6,14 +6,20 @@ const twilio = require('twilio');
 
 const app = express();
 app.use(bodyParser.json());
+const cors = require('cors');
+
 app.use(cors({
-    origin: '*', // Allow requests from any origin
-    methods: ['GET', 'POST'], // Allow GET and POST requests
-    allowedHeaders: ['Content-Type'] // Allow specific headers
+    origin: 'https://coffee-shop-frontend-7qpqcdiia-dheeraj-1272s-projects.vercel.app', // Allow only your frontend
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Handle Preflight (OPTIONS) Requests for CORS
+app.options('*', cors());
+
+
 // Connect to MongoDB with error handling
-mongoose.connect('mongodb://localhost:27017/coffeeShop', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
@@ -95,9 +101,10 @@ app.get('/orders', async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Server running on port ${PORT}`);
 });
+
 
 // Basic Route
 app.get('/', (req, res) => {
