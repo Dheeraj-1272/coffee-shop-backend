@@ -6,7 +6,7 @@ const twilio = require('twilio');
 
 const app = express();
 app.use(bodyParser.json());
-const cors = require('cors');
+
 
 app.use(cors({
     origin: 'https://coffee-shop-frontend-7qpqcdiia-dheeraj-1272s-projects.vercel.app', // Allow only your frontend
