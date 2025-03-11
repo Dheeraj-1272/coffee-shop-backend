@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const twilio = require('twilio');
+require('dotenv').config();
+console.log("🛠 MONGO_URI:", process.env.MONGO_URI);
 
 const app = express();
 app.use(bodyParser.json());
-
 
 app.use(cors({
     origin: 'https://coffee-shop-frontend-7qpqcdiia-dheeraj-1272s-projects.vercel.app', // Allow only your frontend
@@ -15,7 +16,7 @@ app.use(cors({
 }));
 
 // Handle Preflight (OPTIONS) Requests for CORS
-app.options('*', cors());
+
 
 
 // Connect to MongoDB with error handling
@@ -41,7 +42,7 @@ const orderSchema = new mongoose.Schema({
 const Order = mongoose.model('Order', orderSchema);
 
 // Twilio Setup
-require('dotenv').config();
+
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
